@@ -204,10 +204,11 @@ class API{
         return ($ipDec & $maskDec) == ($rangeDec & $maskDec);
     }
     private function getCurrentUri() {
-        $uri = $_SERVER['REQUEST_URI']; // Get the request URI
-        $uri = strtok($uri, '?'); // Remove query string if exists
+        $uri = $_SERVER['REQUEST_URI'];
+        $uri = strtok($uri, '?');
+        $uri = rtrim($uri, '/');
         return $uri;
-    }
+    }    
 }
 class PageManager {
     // Define security levels as constants
